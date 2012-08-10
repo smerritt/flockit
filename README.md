@@ -7,4 +7,4 @@ you don't have to patch your source code to use it. It's inserted
 between your program and its libraries by use of `LD_PRELOAD`.
 
 ## Example (with libflockit.so in the current directory)
-`$ env LD_LIBRARY_PATH=\`pwd\`:$LD_LIBRARY_PATH LD_PRELOAD=libflockit.so FLOCKIT_FILE_PREFIX=test rsync SRC DEST`
+`$ env LD_LIBRARY_PATH=\\`pwd\\`:$LD_LIBRARY_PATH LD_PRELOAD=libflockit.so FLOCKIT_FILE_PREFIX=test rsync SRC DEST`
