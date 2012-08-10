@@ -6,6 +6,19 @@
 #include <string.h>
 #include <sys/file.h>
 
+/* Wrap libc's open() to add locking via flock().
+
+   If a file is opened for writing, we obtain an exclusive lock via
+   flock() on the whole file before returning the file descriptor.
+
+   If a file is opened only for reading, we obtain a shared lock.
+
+   This only applies if the environment variable FLOCKIT_FILE_PREFIX
+   is set, and it only applies to files whose names start with
+   FLOCKIT_FILE_PREFIX. Other files are unaffected. If
+   FLOCKIT_FILE_PREFIX is not set, no locking is done.
+*/
+
 static int (*libc_open)(const char *, int, ...);
 
 void
