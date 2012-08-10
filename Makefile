@@ -1,7 +1,7 @@
 all: libflockit.so test
 
 libflockit.so: flockit.o
-	gcc -shared -o libflockit.so flockit.o -ldl
+	gcc -shared -Wl,-soname,libflockit.so.1 -o libflockit.so flockit.o -ldl
 
 flockit.o: flockit.c
 	gcc -fPIC -Wall -c flockit.c
