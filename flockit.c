@@ -40,8 +40,6 @@ open(const char *file, int flags, ...) {
   va_list argp;
   char *flockit_file_prefix;
 
-  printf("called for %s\n", file);
-
   va_start(argp, flags);
 
   flockit_setup();
